@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pustaka Hijau - Perpustakaan Digital & Toko Buku Online All-in-One. Baca, sewa, beli, dan jual buku dalam satu tempat." />
+  <title>Pustaka Hijau | Perpustakaan Digital & Toko Buku Online</title>
+
+  <!-- Font & Ikon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet utama -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#beranda" class="brand" aria-label="Pustaka Hijau">
+        <span class="brand-logo"><i class="fa-solid fa-book-open-reader"></i></span>
+        <span class="brand-text">Pustaka<strong>Hijau</strong></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navigasi utama">
+        <a href="#beranda" class="nav-link active" data-nav="beranda">Beranda</a>
+        <a href="#katalog" class="nav-link" data-nav="katalog" data-filter="semua">Katalog Buku</a>
+        <a href="#katalog" class="nav-link" data-nav="digital" data-filter="digital">Sewa/Pinjam Digital</a>
+        <a href="#jual" class="nav-link" data-nav="jual">Jual Buku</a>
+        <button class="nav-link nav-cart-link" id="navCartLink" type="button">Keranjang</button>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Ganti tema terang/gelap" title="Ganti tema">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="icon-btn cart-btn" id="cartToggle" type="button" aria-label="Buka keranjang">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Tombol saat belum login -->
+        <div class="auth-buttons" id="authButtons">
+          <button class="btn btn-ghost btn-sm" id="openLogin" type="button">Login</button>
+          <button class="btn btn-primary btn-sm" id="openRegister" type="button">Register</button>
+        </div>
+
+        <!-- Profil saat sudah login -->
+        <div class="user-chip hidden" id="userChip">
+          <span class="avatar" id="userAvatar">U</span>
+          <span class="user-name" id="userName">User</span>
+          <button class="icon-btn small" id="logoutBtn" type="button" title="Keluar" aria-label="Keluar">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button class="icon-btn hamburger" id="hamburger" type="button" aria-label="Buka menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="beranda">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="pill"><i class="fa-solid fa-leaf"></i> Perpustakaan Digital &amp; Toko Buku</span>
+          <h1>
+            Temukan Dunia Baru di Setiap
+            <span class="typing-wrap"><span class="typing" id="typingText"></span><span class="cursor">|</span></span>
+          </h1>
+          <p>
+            Baca e-book, sewa buku digital, beli buku fisik, hingga jual koleksi Anda sendiri.
+            Semua dalam satu platform hijau yang nyaman di mata.
+          </p>
+          <div class="hero-cta">
+            <a href="#katalog" class="btn btn-primary btn-lg"><i class="fa-solid fa-compass"></i> Jelajahi Buku</a>
+            <a href="#jual" class="btn btn-outline btn-lg"><i class="fa-solid fa-store"></i> Mulai Berjualan</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="statBooks">0</strong><span>Judul Buku</span></div>
+            <div><strong>12K+</strong><span>Pembaca</span></div>
+            <div><strong>4.8</strong><span>Rating Rata-rata</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="book-stack">
+            <div class="mock-book mb-1"><i class="fa-solid fa-feather-pointed"></i><span>Sastra</span></div>
+            <div class="mock-book mb-2"><i class="fa-solid fa-lightbulb"></i><span>Sains</span></div>
+            <div class="mock-book mb-3"><i class="fa-solid fa-rocket"></i><span>Bisnis</span></div>
+          </div>
+          <div class="float-card fc-1"><i class="fa-solid fa-star"></i> 4.9 Rating</div>
+          <div class="float-card fc-2"><i class="fa-solid fa-book-open"></i> Baca Instan</div>
+          <div class="float-card fc-3"><i class="fa-solid fa-shield-halved"></i> Aman</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FITUR UNGGULAN ============ -->
+    <section class="section" id="fitur">
+      <div class="container">
+        <div class="section-head">
+          <span class="pill"><i class="fa-solid fa-gem"></i> Keunggulan</span>
+          <h2>Kenapa Memilih Pustaka Hijau?</h2>
+          <p>Platform lengkap untuk pecinta buku, penulis, dan penjual.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+            <h3>Perpustakaan Digital</h3>
+            <p>Sewa dan baca ribuan e-book kapan saja, di perangkat apa saja.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Jual Beli Cepat</h3>
+            <p>Unggah buku Anda dalam hitungan menit dan langsung tampil di katalog.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Keamanan Transaksi</h3>
+            <p>Pesanan dikonfirmasi langsung via WhatsApp dengan rincian yang jelas.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Komunitas Pembaca</h3>
+            <p>Bergabung dengan komunitas, berbagi ulasan, dan temukan rekomendasi baru.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KATALOG BUKU ============ -->
+    <section class="section section-alt" id="katalog">
+      <div class="container">
+        <div class="section-head">
+          <span class="pill"><i class="fa-solid fa-book"></i> Katalog</span>
+          <h2>Katalog Buku &amp; E-Book</h2>
+          <p>Cari, saring, dan temukan buku favorit Anda.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="searchInput" placeholder="Cari judul atau penulis..." autocomplete="off" />
+          </div>
+          <select id="categorySelect" aria-label="Filter kategori">
+            <option value="semua">Semua Kategori</option>
+          </select>
+        </div>
+
+        <div class="chips" id="typeChips" role="tablist" aria-label="Filter jenis">
+          <button class="chip active" data-type="semua" type="button">Semua</button>
+          <button class="chip" data-type="beli" type="button"><i class="fa-solid fa-box"></i> Beli Fisik</button>
+          <button class="chip" data-type="sewa" type="button"><i class="fa-solid fa-clock"></i> Sewa Digital</button>
+          <button class="chip" data-type="ebook" type="button"><i class="fa-solid fa-file-lines"></i> E-Book</button>
+        </div>
+
+        <p class="result-info" id="resultInfo" aria-live="polite"></p>
+        <div class="book-grid" id="bookGrid"></div>
+
+        <div class="empty-state hidden" id="emptyState">
+          <i class="fa-regular fa-face-frown-open"></i>
+          <h3>Buku tidak ditemukan</h3>
+          <p>Coba kata kunci atau filter yang berbeda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORM JUAL / UPLOAD BUKU ============ -->
+    <section class="section" id="jual">
+      <div class="container sell-wrap">
+        <div class="sell-info">
+          <span class="pill"><i class="fa-solid fa-store"></i> Jual Buku</span>
+          <h2>Punya Buku untuk Dijual atau Disewakan?</h2>
+          <p>Isi formulir di samping. Buku Anda akan langsung muncul di katalog dan siap dipesan pembeli.</p>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-circle-check"></i> Gratis daftar dan unggah buku</li>
+            <li><i class="fa-solid fa-circle-check"></i> Pilih jenis: Beli, Sewa, atau E-Book</li>
+            <li><i class="fa-solid fa-circle-check"></i> Pesanan langsung terhubung ke WhatsApp</li>
+            <li><i class="fa-solid fa-circle-check"></i> Data tersimpan otomatis di browser</li>
+          </ul>
+        </div>
+
+        <form class="sell-form" id="sellForm" novalidate>
+          <h3><i class="fa-solid fa-cloud-arrow-up"></i> Form Upload Buku</h3>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="bookTitle">Judul Buku *</label>
+              <input type="text" id="bookTitle" placeholder="Contoh: Filosofi Teras" maxlength="80" />
+              <small class="error" data-error-for="bookTitle"></small>
+            </div>
+            <div class="field">
+              <label for="bookAuthor">Penulis *</label>
+              <input type="text" id="bookAuthor" placeholder="Nama penulis" maxlength="60" />
+              <small class="error" data-error-for="bookAuthor"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="bookPrice">Harga (Rp) *</label>
+              <input type="number" id="bookPrice" placeholder="Contoh: 75000" min="0" step="500" />
+              <small class="error" data-error-for="bookPrice"></small>
+            </div>
+            <div class="field">
+              <label for="bookCategory">Kategori *</label>
+              <select id="bookCategory">
+                <option value="">Pilih kategori</option>
+                <option>Fiksi</option>
+                <option>Non-Fiksi</option>
+                <option>Pengembangan Diri</option>
+                <option>Bisnis</option>
+                <option>Sains &amp; Teknologi</option>
+                <option>Sejarah</option>
+                <option>Anak &amp; Remaja</option>
+                <option>Agama &amp; Filsafat</option>
+              </select>
+              <small class="error" data-error-for="bookCategory"></small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Jenis *</label>
+            <div class="radio-group" id="bookTypeGroup">
+              <label class="radio-card"><input type="radio" name="bookType" value="beli" checked /><span><i class="fa-solid fa-box"></i> Beli Fisik</span></label>
+              <label class="radio-card"><input type="radio" name="bookType" value="sewa" /><span><i class="fa-solid fa-clock"></i> Sewa Digital</span></label>
+              <label class="radio-card"><input type="radio" name="bookType" value="ebook" /><span><i class="fa-solid fa-file-lines"></i> E-Book</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="bookDesc">Deskripsi *</label>
+            <textarea id="bookDesc" rows="4" placeholder="Ceritakan singkat isi buku (minimal 20 karakter)" maxlength="500"></textarea>
+            <small class="error" data-error-for="bookDesc"></small>
+          </div>
+
+          <div class="field">
+            <label for="bookCover">Upload Cover (opsional)</label>
+            <label class="upload-box" for="bookCover">
+              <i class="fa-solid fa-image"></i>
+              <span id="uploadText">Klik untuk memilih gambar (JPG/PNG, maks 3 MB)</span>
+              <img id="coverPreview" class="hidden" alt="Pratinjau cover" />
+            </label>
+            <input type="file" id="bookCover" accept="image/*" hidden />
+            <small class="error" data-error-for="bookCover"></small>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            <i class="fa-solid fa-paper-plane"></i> Tambahkan ke Katalog
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="kontak">
+    <div class="container footer-grid">
+      <div>
+        <a href="#beranda" class="brand brand-light">
+          <span class="brand-logo"><i class="fa-solid fa-book-open-reader"></i></span>
+          <span class="brand-text">Pustaka<strong>Hijau</strong></span>
+        </a>
+        <p class="footer-about">Perpustakaan digital dan toko buku online all-in-one untuk pembaca, penulis, dan penjual Indonesia.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigasi Cepat</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#katalog">Katalog Buku</a></li>
+          <li><a href="#jual">Jual Buku</a></li>
+          <li><a href="#fitur">Keunggulan</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Jl. Literasi No. 17, Indonesia</li>
+          <li><i class="fa-solid fa-phone"></i> +62 812-3456-7890</li>
+          <li><i class="fa-solid fa-envelope"></i> halo@pustakahijau.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Pustaka Hijau. Hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- ============ SIDEBAR KERANJANG (SLIDE-OVER) ============ -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Keranjang belanja" aria-hidden="true">
+    <div class="cart-head">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Keranjang Anda</h3>
+      <button class="icon-btn" id="cartClose" type="button" aria-label="Tutup keranjang"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">Rp 0</strong></div>
+      <button class="btn btn-whatsapp btn-block btn-lg" id="checkoutBtn" type="button">
+        <i class="fa-brands fa-whatsapp"></i> Checkout / Hubungi Penjual
+      </button>
+      <button class="btn btn-ghost btn-block" id="clearCartBtn" type="button">Kosongkan Keranjang</button>
+    </div>
+  </aside>
+
+  <!-- ============ MODAL LOGIN / REGISTER ============ -->
+  <div class="modal hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-card auth-card">
+      <button class="icon-btn modal-close" data-close type="button" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" type="button">Login</button>
+        <button class="auth-tab" id="tabRegister" type="button">Daftar</button>
+      </div>
+      <h3 id="authTitle">Selamat Datang Kembali</h3>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="nama@email.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="loginPass">Password</label>
+          <input type="password" id="loginPass" placeholder="Masukkan password" autocomplete="current-password" />
+        </div>
+        <small class="error" id="loginError"></small>
+        <button class="btn btn-primary btn-block" type="submit">Masuk</button>
+      </form>
+
+      <form id="registerForm" class="hidden" novalidate>
+        <div class="field">
+          <label for="regName">Nama Lengkap</label>
+          <input type="text" id="regName" placeholder="Nama Anda" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" placeholder="nama@email.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="regPass">Password (min. 6 karakter)</label>
+          <input type="password" id="regPass" placeholder="Buat password" autocomplete="new-password" />
+        </div>
+        <small class="error" id="registerError"></small>
+        <button class="btn btn-primary btn-block" type="submit">Buat Akun</button>
+      </form>
+      <p class="auth-note"><i class="fa-solid fa-circle-info"></i> Ini hanya simulasi: data akun disimpan di browser Anda.</p>
+    </div>
+  </div>
+
+  <!-- ============ MODAL BACA / DETAIL BUKU ============ -->
+  <div class="modal hidden" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <div class="modal-card book-modal-card">
+      <button class="icon-btn modal-close" data-close type="button" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <div class="bm-grid">
+        <div class="bm-cover" id="bmCover"></div>
+        <div class="bm-info">
+          <span class="badge" id="bmBadge"></span>
+          <h3 id="bmTitle"></h3>
+          <p class="bm-author" id="bmAuthor"></p>
+          <div class="stars" id="bmStars"></div>
+          <p class="bm-price" id="bmPrice"></p>
+          <p class="bm-desc" id="bmDesc"></p>
+          <div class="reader hidden" id="bmReader">
+            <div class="reader-head">
+              <strong><i class="fa-solid fa-book-open"></i> Pratinjau Bacaan</strong>
+              <div class="reader-tools">
+                <button type="button" id="fontMinus" class="icon-btn small" aria-label="Perkecil huruf"><i class="fa-solid fa-minus"></i></button>
+                <button type="button" id="fontPlus" class="icon-btn small" aria-label="Perbesar huruf"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="reader-text" id="bmReaderText"></div>
+          </div>
+          <button class="btn btn-primary" id="bmAddBtn" type="button"><i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifikasi (toast) -->
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <!-- Script utama -->
+  <script src="script.js"></script>
+</body>
+</html>
